@@ -107,7 +107,7 @@ elif st.session_state.stage == 2:
 
 elif st.session_state.stage == 3:
     ans3 = st.text_input("第三題：當我突然訊息回很慢的時候，其實是因為：(A) 我睡著了😪 (B) 手機沒電了🪫 (C) 我去洗澡了🛁 (D) 我不太開心了😕") #
-    if st.button("確認第三題答案"):
+    if ans3:
         if "(D)" in ans3:
             st.success("哦！答對了！！😤 有時候只是因為想你了不開心了🥲")
             if st.button("下一題"):
@@ -135,17 +135,18 @@ elif st.session_state.stage == 4:
 elif st.session_state.stage == 5:
     ans5 = st.text_input("第五題：猜猜你女朋友現在最想要被你怎樣？(A) 摸頭 (B) 抱抱 (C) 親親 (D) 一發不可收拾") #
     if st.button("最後一關！解鎖卡片"):
-        if "(C)" in ans5:
-            st.balloons()
-            st.success("哦！居然一次就猜對了！好的！現在可以親你的女朋友😗 然後看卡片了～")
-            st.session_state.stage = 6
-            st.rerun()
-        elif "(A)" in ans5:
-            st.info("嗯～還不錯～ 但現在不是最想要這個🙂‍↔️")
-        elif "(B)" in ans5:
-            st.info("這個～也喜歡！那就等你猜對以後 都做吧！🤩")
-        elif "(D)" in ans5:
-            st.warning("哦...這個有點刺激🫨 雖然也有點想要🫣，但不行😭")
+        if ans5:
+            if "(C)" in ans5:
+                st.balloons()
+                st.success("哦！居然一次就猜對了！好的！現在可以親你的女朋友😗 然後看卡片了～")
+                st.session_state.stage = 6
+                st.rerun()
+            elif "(A)" in ans5:
+                st.info("嗯～還不錯～ 但現在不是最想要這個🙂‍↔️")
+            elif "(B)" in ans5:
+                st.info("這個～也喜歡！那就等你猜對以後 都做吧！🤩")
+            elif "(D)" in ans5:
+                st.warning("哦...這個有點刺激🫨 雖然也有點想要🫣，但不行😭")
 
 elif st.session_state.stage == 6:
     st.header("💖 你的專屬卡片已解鎖 💖")
