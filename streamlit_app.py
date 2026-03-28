@@ -124,12 +124,15 @@ elif st.session_state.stage == 4:
         ans_detail = st.text_area("那你覺得是什麼？說來聽聽")
         if st.button("誠實交代"):
             if len(ans_detail) >= 4:
+                st.session_state.show_next_step = True
+            else:
+                st.error("太短了啦！說的詳細一點！")
+        if st.session_state.get('show_next_step' , False):
                 st.warning(f"「{ans_detail}」...嗯～原來是這樣。但可能不是這個哦！")
                 if st.button("點我進入最後一關"):
                     st.session_state.stage = 5
                     st.rerun()
-            else:
-                st.error("太短了啦！說的詳細一點！")
+            
     elif ans4 == "沒有":
         st.error("嘿嘿嘿 我還是隱藏的很好的嘛🤪 但答錯了請重新回答！ 至於答案，我想一下要不要和你說🤪")
 
