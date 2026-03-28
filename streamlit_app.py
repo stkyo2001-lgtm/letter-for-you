@@ -143,7 +143,6 @@ elif st.session_state.stage == 5:
             if "C" in ans5:
                 st.balloons()
                 st.success("哦！居然一次就猜對了！好的！現在可以親你的女朋友😗 然後看卡片了～")
-                if st.button("下一題"):
                 st.session_state.stage = 6
                 st.rerun()
             elif "A" in ans5:
