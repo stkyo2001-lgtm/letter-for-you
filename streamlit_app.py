@@ -124,7 +124,8 @@ elif st.session_state.stage == 4:
         ans_detail = st.text_area("那你覺得是什麼？說來聽聽")
         if st.button("誠實交代"):
             if len(ans_detail) >= 4:
-                st.warning(f"『{ans_detail}』...嗯～原來是這樣。但可能不是這個哦！")
+                st.warning(f"「{ans_detail}」...嗯～原來是這樣。但可能不是這個哦！")
+                if st.button("點我進入最後一關")
                 st.session_state.stage = 5
                 st.rerun()
             else:
