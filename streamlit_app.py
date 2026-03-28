@@ -111,8 +111,8 @@ elif st.session_state.stage == 3:
         if "(D)" in ans3:
             st.success("哦！答對了！！😤 有時候只是因為想你了不開心了🥲")
             if st.button("下一題"):
-            st.session_state.stage = 4
-            st.rerun()
+                st.session_state.stage = 4
+                st.rerun()
         else:
             st.error("哈哈哈 雖然這個也有可能，但不對！🙅‍♂️")
 
