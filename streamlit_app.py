@@ -106,11 +106,11 @@ elif st.session_state.stage == 2:
             st.info("提示：是我很喜歡去的地方！再想想！")
 
 elif st.session_state.stage == 3:
-    ans3 = st.radio("第三題：當我突然訊息回很慢的時候，其實是因為：", 
-                    ["(A) 我睡著了😪", "(B) 手機沒電了🪫", "(C) 我去洗澡了🛁", "(D) 我不太開心了😕"]) #
+    ans3 = st.text_input("第三題：當我突然訊息回很慢的時候，其實是因為：(A) 我睡著了😪 (B) 手機沒電了🪫 (C) 我去洗澡了🛁 (D) 我不太開心了😕") #
     if st.button("確認第三題答案"):
         if "(D)" in ans3:
             st.success("哦！答對了！！😤 有時候只是因為想你了不開心了🥲")
+            if st.button("下一題"):
             st.session_state.stage = 4
             st.rerun()
         else:
@@ -133,12 +133,11 @@ elif st.session_state.stage == 4:
         st.error("嘿嘿嘿 我還是隱藏的很好的嘛🤪 但答錯了請重新回答！ 至於答案，我想一下要不要和你說🤪")
 
 elif st.session_state.stage == 5:
-    ans5 = st.radio("第五題：猜猜你女朋友現在最想要被你怎樣？", 
-                    ["(A) 摸頭", "(B) 抱抱", "(C) 親親", "(D) 一發不可收拾"]) #
+    ans5 = st.text_input("第五題：猜猜你女朋友現在最想要被你怎樣？(A) 摸頭 (B) 抱抱 (C) 親親 (D) 一發不可收拾") #
     if st.button("最後一關！解鎖卡片"):
         if "(C)" in ans5:
             st.balloons()
-            st.success("哦！居然一次就猜對了！好的！現在可以親吻你的女朋友😗 然後看卡片了～")
+            st.success("哦！居然一次就猜對了！好的！現在可以親你的女朋友😗 然後看卡片了～")
             st.session_state.stage = 6
             st.rerun()
         elif "(A)" in ans5:
