@@ -139,7 +139,7 @@ elif st.session_state.stage == 4:
         st.error("嘿嘿嘿 我還是隱藏的很好的嘛🤪 但答錯了請重新回答！ 至於答案，我想一下要不要和你說🤪")
 
 elif st.session_state.stage == 5:
-    ans5 = st.text_input("第五題：猜猜你女朋友現在最想要被你怎樣？...", key="input5")
+    ans5 = st.text_input("第五題：猜猜你女朋友現在最想要被你怎樣？ A:摸頭 B:抱抱 C:親親 D:一發不可收拾", key="input5")
     
     # 用一個變數來記錄有沒有按過「確定提交」
     if 'submitted_5' not in st.session_state:
