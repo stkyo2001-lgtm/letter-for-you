@@ -130,7 +130,7 @@ elif st.session_state.stage == 4:
             else:
                 st.error("太短了啦！說的詳細一點！")
         if st.session_state.get('show_next_step' , False):
-                st.warning(f"「{ans_detail}」...嗯～原來是這樣。但可能不是這個哦！")
+                st.warning(f"嗯～原來是這樣。但可能不是這個哦！")
                 if st.button("點我進入最後一關"):
                     st.session_state.stage = 5
                     st.rerun()
