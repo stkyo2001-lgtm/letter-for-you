@@ -27,12 +27,7 @@ st.markdown("""
 if 'stage' not in st.session_state:
     st.session_state.stage = 0
 
-if 'submitted' not in st.session_state:
-    st.session_state.submitted = False
 
-# 2. 確定提交按鈕：只負責改狀態，不負責顯示後續內容
-if st.button("確定提交"):
-    st.session_state.submitted = True
 
 # 最新版本信件內容
 letter = [
@@ -144,19 +139,31 @@ elif st.session_state.stage == 4:
         st.error("嘿嘿嘿 我還是隱藏的很好的嘛🤪 但答錯了請重新回答！ 至於答案，我想一下要不要和你說🤪")
 
 elif st.session_state.stage == 5:
-    ans5 = st.text_input("第五題：猜猜你女朋友現在最想要被你怎樣？(A) 摸頭 (B) 抱抱 (C) 親親 (D) 一發不可收拾") #
+    ans5 = st.text_input("第五題：猜猜你女朋友現在最想要被你怎樣？...", key="input5")
+    
+    # 用一個變數來記錄有沒有按過「確定提交」
+    if 'submitted_5' not in st.session_state:
+        st.session_state.submitted_5 = False
+
     if st.button("確定提交！"):
+        st.session_state.submitted_5 = True
+
+    # 重點：把原本在 button 裡面的邏輯拿出來，改用 session_state 判斷
+    if st.session_state.submitted_5:
         if ans5:
             if "C" in ans5:
                 st.balloons()
                 st.success("哦！居然一次就猜對了！好的！現在可以親你的女朋友😗 然後看卡片了～")
-            if st.button("解鎖信封✉️"):
-                st.session_state.stage = 6
-                st.rerun()
+                
+                # 這裡的按鈕現在可以正常作用了！
+                if st.button("解鎖信封✉️"):
+                    st.session_state.stage = 6
+                    st.rerun()
+            
             elif "A" in ans5:
-                st.info("嗯～還不錯～ 但現在不是最想要這個🙂‍↔️")
+                st.info("嗯～還不錯～ 但現在不是最想要這個😏")
             elif "B" in ans5:
-                st.info("這個～也喜歡！那就等你猜對以後 都做吧！🤩")
+                st.info("這個～也喜歡！那就等妳猜對以後 都做吧！🤩")
             elif "D" in ans5:
                 st.warning("哦...這個有點刺激🫨 雖然也有點想要🫣，但不行😭")
 
