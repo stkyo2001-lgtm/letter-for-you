@@ -153,7 +153,7 @@ elif st.session_state.stage == 5:
         if ans5:
             if "C" in ans5:
                 st.balloons()
-                st.success("哦！居然一次就猜對了！好的！現在可以親你的女朋友😗 然後看卡片了～")
+                st.success("哦！居然一次就猜對了！好的！現在可以親親你的女朋友😗 然後看卡片了～")
                 
                 # 這裡的按鈕現在可以正常作用了！
                 if st.button("解鎖信封✉️"):
