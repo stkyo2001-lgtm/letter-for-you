@@ -145,7 +145,7 @@ elif st.session_state.stage == 4:
 
 elif st.session_state.stage == 5:
     ans5 = st.text_input("第五題：猜猜你女朋友現在最想要被你怎樣？(A) 摸頭 (B) 抱抱 (C) 親親 (D) 一發不可收拾") #
-    if st.button(確定提交！"):
+    if st.button("確定提交！"):
         if ans5:
             if "C" in ans5:
                 st.balloons()
